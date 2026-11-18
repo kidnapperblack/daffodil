@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
-import { DaffModelFactory } from '@daffodil/core/testing';
-import { DaffProduct } from '@daffodil/product';
+import { DaffModelFactory, IDaffModelFactory } from '@daffodil/core/testing';
+import { DaffProduct, DaffProductKind, DaffProductImage } from '@daffodil/product';
 import {
   MockProduct,
   DaffProductKindFactory,
@@ -33,8 +33,8 @@ export class MockUpsellProduct extends MockProduct implements DaffUpsellProduct 
 })
 export class DaffUpsellProductFactory extends DaffModelFactory<DaffUpsellProduct>{
   constructor(
-    productKindFactory: DaffProductKindFactory,
-    imageFactory: DaffProductImageFactory,
+    productKindFactory: IDaffModelFactory<DaffProductKind>,
+    imageFactory: IDaffModelFactory<DaffProductImage>,
   ) {
     super(MockUpsellProduct, productKindFactory, imageFactory);
   }
